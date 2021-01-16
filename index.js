@@ -38,8 +38,14 @@ t1.commit();
 // t1.commit();
 // console.log('Transaction 1:', t1);
 
-t2 = new Withdrawal(9.99);
-t2.commit();
-console.log('Transaction 2:', t2);
+const myAccount = new Account('billybob');
 
-console.log('Balance:', balance);
+console.log('Starting Balance:', myAccount.balance);
+
+const t1 = new Deposit(120.00, myAccount);
+t1.commit();
+
+const t2 = new Withdrawal(50.00, myAccount);
+t2.commit();
+
+console.log('Ending Balance:', myAccount.balance);
